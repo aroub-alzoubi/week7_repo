@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Course Recommendation Engine</title>
+</head>
+<body>
+
+<h1>Course Recommendation Engine</h1>
+
+<form method="POST">
+<label>Enter your skills or interests:</label><br><br>
+
+<textarea name="skills" rows="5" cols="50"
+       placeholder="Example: AI, backend, database"></textarea><br><br>
+
+<button type="submit">Recommend Courses</button>
+</form>
+
+   {% if recommendations %}
+<h2>Recommended Courses:</h2>
+
+       {% for course in recommendations %}
+<div style="border:1px solid black; padding:10px; margin:10px;">
+<h3>{{ course.title }}</h3>
+<p><strong>Description:</strong> {{ course.description }}</p>
+<p><strong>Skills:</strong> {{ course.skills }}</p>
+<p><strong>Similarity Score:</strong> {{ course.score }}</p>
+</div>
+       {% endfor %}
+
+   {% elif request.method == "POST" %}
+<h3>No relevant courses found.</h3>
+   {% endif %}
+
+</body>
+</html>
