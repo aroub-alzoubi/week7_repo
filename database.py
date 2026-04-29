@@ -1,17 +1,5 @@
-from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, Text
+from sqlalchemy import create_engine
 
-engine = create_engine("sqlite:///Recommendation.db", echo=True)
+DATABASE_URL = "postgresql://postgres:a1234@localhost:5432/recommendation_db"
 
-metadata = MetaData()
-
-courses = Table(
-   "courses",
-   metadata,
-   Column("id", Integer, primary_key=True),
-   Column("title", String(100), nullable=False),
-   Column("description", Text, nullable=False),
-   Column("skills", Text, nullable=False),
-)
-
-def create_database():
-   metadata.create_all(engine)
+engine = create_engine(DATABASE_URL, echo=True)

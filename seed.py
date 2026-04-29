@@ -1,6 +1,7 @@
-from database import engine, courses, create_database
+from database import engine
 
-create_database()
+from models import courses 
+ 
 
 sample_courses = [
    {

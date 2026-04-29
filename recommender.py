@@ -1,6 +1,7 @@
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-from database import engine, courses
+from database import engine
+from models import courses
 
 
 def extract_skills(user_input):

@@ -1,12 +1,9 @@
 from flask import Flask, request, render_template, jsonify
-from database import create_database
+ 
 from recommender import recommend_courses
 
 app = Flask(__name__)
-
-create_database()
-
-
+ 
 @app.route("/", methods=["GET", "POST"])
 def home():
    recommendations = []
